@@ -43,7 +43,7 @@ function handleEvent(event) {
   // put message processing HERE
   // params: event.message.text
   // return: text
-  const echo = { type: 'text', text: command_handler.handleCommand(event.message.text) };
+  const echo = { type: 'text', text: commandHandler.handleCommand(event.message.text) };
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
