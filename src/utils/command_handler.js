@@ -12,7 +12,8 @@ const path = require('path');
 const commandList = {
     "!info": helper.showInfo,
     "!help": helper.showHelp,
-    "coba": helper.Coba
+    "coba": helper.Coba,
+    "carousel": helper.Karosel
 }
 
 function handleCommand(command) {

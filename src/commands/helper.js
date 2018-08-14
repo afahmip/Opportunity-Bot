@@ -25,8 +25,13 @@ function Coba() {
     return msg.flexSendMessage("This is header", arr);
 }
 
+function Karosel() {
+    return msg.carouselSendMessage();
+}
+
 module.exports = {
     showHelp: showHelp,
     showInfo: showInfo,
-    Coba: Coba
+    Coba: Coba,
+    Karosel: Karosel
 }

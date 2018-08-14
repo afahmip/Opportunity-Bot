@@ -15,6 +15,72 @@ function imageSendMessage(originalContentUrl, previewImageUrl) {
     }
 }
 
+function carouselSendMessage() {
+    return {
+        "type": "carousel",
+        "contents": [
+        {
+            "type": "bubble",
+            "body": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                "type": "text",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "wrap": true
+                }
+            ]
+            },
+            "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                "type": "button",
+                "style": "primary",
+                "action": {
+                    "type": "uri",
+                    "label": "Go",
+                    "uri": "https://example.com"
+                }
+                }
+            ]
+            }
+        },
+        {
+            "type": "bubble",
+            "body": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                "type": "text",
+                "text": "Hello, World!",
+                "wrap": true
+                }
+            ]
+            },
+            "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                "type": "button",
+                "style": "primary",
+                "action": {
+                    "type": "uri",
+                    "label": "Go",
+                    "uri": "https://example.com"
+                }
+                }
+            ]
+            }
+        }
+        ]
+    }
+}
+
 function flexSendMessage(header, textMessages) {
     // return {  
     //     "type": "bubble",
@@ -90,7 +156,7 @@ function flexSendMessage(header, textMessages) {
         },
         "hero": {
             "type": "image",
-            "url": "https://example.com/flex/images/image.jpg",
+            "url": "https://files.catbox.moe/nkc088.png",
             "size": "full",
             "aspectRatio": "2:1"
         },
