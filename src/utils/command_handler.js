@@ -2,7 +2,8 @@
 
 // load all command processor
 const msg = require('./../utils/msg_object_handler');
-const helper = require('./../commands/helper.js');
+const helper = require('./../commands/helper');
+const intern = require('./../commands/intern');
 
 const fs = require('fs');
 const path = require('path');
@@ -12,15 +13,14 @@ const path = require('path');
 const commandList = {
     "!info": helper.showInfo,
     "!help": helper.showHelp,
-    "coba": helper.Coba,
-    "carousel": helper.Karosel
+    "carousel": helper.Karosel,
+    "!intern": intern.showIntern
 }
 
 function handleCommand(command) {
     if(commandList[command]) {
         return commandList[command]();
     }
-    return msg.textSendMessage("none");
 }
 
 module.exports = {

@@ -85,37 +85,7 @@ function carouselSendMessage() {
     }
 }
 
-function flexSendMessage(header, textMessages) {
-    // return {  
-    //     "type": "bubble",
-    //     "header": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": [
-    //             textSendMessage(header)
-    //         ]
-    //     },
-    //     "hero": {
-    //         "type": "image",
-    //         "url": "https://files.catbox.moe/nkc088.png",
-    //         "size": "full",
-    //         "aspectRatio": "2:1"
-    //     },
-    //     "body": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": textMessages
-    //     },
-    //     "footer": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": [
-    //             textSendMessage("Footer")
-    //         ]
-    //     }
-    // }
-
-    
+function bubbleSendMessage(header, imageUrl, textMessages, link) { 
     return {
         "type": "flex",
         "altText": "Halo semua",
@@ -130,9 +100,10 @@ function flexSendMessage(header, textMessages) {
             },
             "hero": {
                 "type": "image",
-                "url": "https://files.catbox.moe/nkc088.png",
+                "url": imageUrl,
                 "size": "full",
-                "aspectRatio": "2:1"
+                "aspectRatio": "1:2",
+                "aspectMode": "fit"
             },
             "body": {
                 "type": "box",
@@ -140,59 +111,21 @@ function flexSendMessage(header, textMessages) {
                 "contents": textMessages
             },
             "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    textSendMessage("Footer")
-                ]
+                "type": "button",
+                "style": "primary",
+                "action": {
+                    "type": "uri",
+                    "label": "Visit web",
+                    "uri": link
+                }
             }
         }
     }
-
-    // return {
-    //     "type": "bubble",
-    //     "header": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": [
-    //             {
-    //                 "type": "text",
-    //                 "text": "header"
-    //             }
-    //         ]
-    //     },
-    //     "hero": {
-    //         "type": "image",
-    //         "url": "https://files.catbox.moe/nkc088.png",
-    //         "size": "full",
-    //         "aspectRatio": "2:1"
-    //     },
-    //     "body": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": [
-    //             {
-    //                 "type": "text",
-    //                 "text": "body"
-    //             }
-    //         ]
-    //     },
-    //     "footer": {
-    //         "type": "box",
-    //         "layout": "vertical",
-    //         "contents": [
-    //             {
-    //                 "type": "text",
-    //                 "text": "footer"
-    //             }
-    //         ]
-    //     }
-    // }
 }
 
 module.exports = {
     textSendMessage: textSendMessage,
     imageSendMessage: imageSendMessage,
-    flexSendMessage: flexSendMessage,
+    bubbleSendMessage: bubbleSendMessage,
     carouselSendMessage: carouselSendMessage
 }

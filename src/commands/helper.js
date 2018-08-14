@@ -19,12 +19,6 @@ function showHelp() {
     );
 }
 
-function Coba() {
-    let test = msg.textSendMessage("Halo halo bandung");
-    let arr = [test];
-    return msg.flexSendMessage("This is header", arr);
-}
-
 function Karosel() {
     return msg.carouselSendMessage();
 }
@@ -32,6 +26,5 @@ function Karosel() {
 module.exports = {
     showHelp: showHelp,
     showInfo: showInfo,
-    Coba: Coba,
     Karosel: Karosel
 }

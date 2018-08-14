@@ -46,7 +46,9 @@ function handleEvent(event) {
   const message = commandHandler.handleCommand(event.message.text);
 
   // use reply API
-  return client.replyMessage(event.replyToken, message);
+  if(message) {
+    return client.replyMessage(event.replyToken, message);
+  }
 }
 
 // listen on port
