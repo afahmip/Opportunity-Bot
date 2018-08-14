@@ -111,13 +111,19 @@ function bubbleSendMessage(header, imageUrl, textMessages, link) {
                 "contents": textMessages
             },
             "footer": {
-                "type": "button",
-                "style": "primary",
-                "action": {
-                    "type": "uri",
-                    "label": "Visit web",
-                    "uri": link
-                }
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "button",
+                        "style": "primary",
+                        "action": {
+                            "type": "uri",
+                            "label": "Visit web",
+                            "uri": link
+                        }
+                    }
+                ]
             }
         }
     }
