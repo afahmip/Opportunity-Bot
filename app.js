@@ -1,6 +1,6 @@
 'use strict';
 
-const commandHandler = require("./src/command_handler");
+const commandHandler = require("./src/utils/command_handler");
 
 const line = require('@line/bot-sdk');
 const express = require('express');
@@ -42,11 +42,11 @@ function handleEvent(event) {
 
   // put message processing HERE
   // params: event.message.text
-  // return: text
-  const echo = { type: 'text', text: commandHandler.handleCommand(event.message.text) };
+  // return: message object
+  const message = commandHandler.handleCommand(event.message.text);
 
   // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  return client.replyMessage(event.replyToken, message);
 }
 
 // listen on port
