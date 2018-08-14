@@ -22,7 +22,7 @@ function showHelp() {
 function Coba() {
     let test = msg.textSendMessage("Halo halo bandung");
     let arr = [test];
-    return msg.flexSendMessage("This is alt text", arr);
+    return msg.flexSendMessage("This is header", arr);
 }
 
 module.exports = {

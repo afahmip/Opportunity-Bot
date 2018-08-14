@@ -15,17 +15,33 @@ function imageSendMessage(originalContentUrl, previewImageUrl) {
     }
 }
 
-function flexSendMessage(altText, textMessages) {
+function flexSendMessage(header, textMessages) {
     return {  
-        "type": "flex",
-        "altText": altText,
-        "contents": {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": textMessages
-            }
+        "type": "bubble",
+        "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                textSendMessage(header)
+            ]
+        },
+        "hero": {
+            "type": "image",
+            "url": "https://files.catbox.moe/nkc088.png",
+            "size": "full",
+            "aspectRatio": "2:1"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": textMessages
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                textSendMessage("Footer")
+            ]
         }
     }
 }
