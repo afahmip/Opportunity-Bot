@@ -186,5 +186,6 @@ function flexSendMessage(header, textMessages) {
 module.exports = {
     textSendMessage: textSendMessage,
     imageSendMessage: imageSendMessage,
-    flexSendMessage: flexSendMessage
+    flexSendMessage: flexSendMessage,
+    carouselSendMessage: carouselSendMessage
 }
