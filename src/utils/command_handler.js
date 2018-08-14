@@ -17,8 +17,14 @@ const commandList = {
     "!intern": intern.showIntern
 }
 
-function handleCommand(command) {
-    if(commandList[command]) {
+function handleCommand(input) {
+    let input_split = input.split(" ", 2);
+    let command = input_split[0];
+    
+    if(input_split.length > 1) {
+        let param = input_split[1];
+        return commandList[command](param);
+    } else {
         return commandList[command]();
     }
 }
