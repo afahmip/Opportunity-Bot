@@ -1,5 +1,7 @@
 'use strict';
 
+const commandHandler = require("./src/command_handler");
+
 const line = require('@line/bot-sdk');
 const express = require('express');
 
@@ -38,8 +40,10 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
+  // put message processing HERE
+  // params: event.message.text
+  // return: text
+  const echo = { type: 'text', text: handleCommand(event.message.text) };
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
