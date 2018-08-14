@@ -1,4 +1,4 @@
 {
-    "!info": "showInfo",
-    "!help": "showHelp"
+    "!info": "helper.showInfo",
+    "!help": "helper.showHelp"
 }
