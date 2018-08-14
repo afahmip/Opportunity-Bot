@@ -1,0 +1,23 @@
+{
+  "name": "opportunitybot",
+  "version": "1.0.0",
+  "description": "\"Bot for showing opportunities available\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadfahmip/Opportunity-Bot.git"
+  },
+  "author": "afahmip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmadfahmip/Opportunity-Bot/issues"
+  },
+  "homepage": "https://github.com/ahmadfahmip/Opportunity-Bot#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^6.1.1",
+    "express": "^4.16.3"
+  }
+}
