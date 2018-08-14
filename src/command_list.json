@@ -1,3 +1,4 @@
 {
-    "!info": "hehe"
+    "!info": "showInfo",
+    "!help": "showHelp"
 }
