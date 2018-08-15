@@ -2,16 +2,33 @@
 
 // load all command processor
 const msg = require('./../utils/msg_object_handler');
-const internList = require('./../data/intern_list.json');
+const companyList = require('./../data/company_list.json');
+const roleList = require('./../data/role_list.json');
 
-function showIntern(company) {
+function showCompany(company) {
     if(internList[company]) {
         let data = internList[company];
-        return returnTextMesage(data);
+        return companyTextMesage(data);
+    }
+    return msg.textSendMessage("Maaf belum ada info untuk saat ini :(");
+}
+
+function showRole(role) {
+    if(role === "list") {
+        let textMessages = [];
+        roleList.code.forEach(elem => {
+            let action = msg.messageAction(roleList.role.elem.text, "!role "+elem);
+            let button = msg.buttonSendMessage("link", action);
+            let box = msg.boxSendMessage([button]);
+            textMessages.push(box);
+        });
+        return msg.boxSendMessage(textMessages);
+    } else if(roleList.role.role) {
+        return msg.textSendMessage(roleList.role.role.text);
     }
 }
 
-function returnBubbleMessage(data) {
+function companyBubbleMessage(data) {
     let header = data.header;
     let imageUrl = data.image;
     let link = data.link;
@@ -20,10 +37,11 @@ function returnBubbleMessage(data) {
         textMessages.push(msg.textSendMessage(el));
     });
 
-    return msg.bubbleSendMessage(header, imageUrl, textMessages, link);
+    let bubble = bubbleSendMessage(header, imageUrl, textMessages, link);
+    return msg.flexSendMessage(data.header, bubble);
 }
 
-function returnTextMesage(data) {
+function companyTextMesage(data) {
     let result = '';
 
     let header = data.header + '\n';
@@ -42,5 +60,6 @@ function returnTextMesage(data) {
 }
 
 module.exports = {
-    showIntern: showIntern
+    showCompany: showCompany,
+    showRole: showRole
 }

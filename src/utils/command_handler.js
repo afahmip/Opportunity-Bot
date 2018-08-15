@@ -14,7 +14,8 @@ const commandList = {
     "!info": helper.showInfo,
     "!help": helper.showHelp,
     "carousel": helper.Karosel,
-    "!intern": intern.showIntern
+    "!company": intern.showCompany,
+    "!role": intern.showRole
 }
 
 function handleCommand(input) {
