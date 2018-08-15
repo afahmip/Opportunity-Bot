@@ -57,5 +57,5 @@ app.listen(port, () => {
   console.log(`listening on ${port}`);
 
   // For debugging purpose
-  // console.log(commandHandler.handleCommand("!company bi"));
+  console.log(commandHandler.handleCommand("!role list"));
 });

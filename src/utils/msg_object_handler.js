@@ -39,14 +39,6 @@ function buttonSendMessage(style, action) {
     }
 }
 
-function boxSendMessage(contents) {
-    return {
-        "type": "box",
-        "layout": "vertical",
-        "contents": contents
-    }
-}
-
 function flexSendMessage(altText, contents) {
     return {
         "type": "flex",
@@ -125,43 +117,53 @@ function carouselSendMessage() {
     }
 }
 
-function bubbleSendMessage(header, imageUrl, bodyMessages, link) { 
+function bubbleSendMessage() { 
+    // return {
+    //     "type": "bubble",
+    //     "header": {
+    //         "type": "box",
+    //         "layout": "vertical",
+    //         "contents": [
+    //             textSendMessage(header)
+    //         ]
+    //     },
+    //     "hero": {
+    //         "type": "image",
+    //         "url": imageUrl,
+    //         "size": "full",
+    //         "aspectRatio": "1:1",
+    //         "aspectMode": "fit"
+    //     },
+    //     "body": {
+    //         "type": "box",
+    //         "layout": "vertical",
+    //         "contents": bodyMessages
+    //     },
+    //     "footer": {
+    //         "type": "box",
+    //         "layout": "horizontal",
+    //         "contents": [
+    //             {
+    //                 "type": "button",
+    //                 "style": "primary",
+    //                 "action": {
+    //                     "type": "uri",
+    //                     "label": "Visit web",
+    //                     "uri": link
+    //                 }
+    //             }
+    //         ]
+    //     }
+    // }
+
+    let bubble = { "type": "bubble" };
+}
+
+function createComponent(type, layout, contents) {
     return {
-        "type": "bubble",
-        "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                textSendMessage(header)
-            ]
-        },
-        "hero": {
-            "type": "image",
-            "url": imageUrl,
-            "size": "full",
-            "aspectRatio": "1:1",
-            "aspectMode": "fit"
-        },
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": bodyMessages
-        },
-        "footer": {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-                {
-                    "type": "button",
-                    "style": "primary",
-                    "action": {
-                        "type": "uri",
-                        "label": "Visit web",
-                        "uri": link
-                    }
-                }
-            ]
-        }
+        "type": type,
+        "layout": layout,
+        "contents": contents
     }
 }
 
@@ -172,6 +174,7 @@ module.exports = {
     bubbleSendMessage: bubbleSendMessage,
     carouselSendMessage: carouselSendMessage,
     buttonSendMessage: buttonSendMessage,
-    boxSendMessage: boxSendMessage,
-    messageAction: messageAction
+    createComponent: createComponent,
+    messageAction: messageAction,
+    uriAction: uriAction
 }
