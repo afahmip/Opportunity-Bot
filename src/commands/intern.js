@@ -24,7 +24,7 @@ function showRole(role) {
         });
         let message = {
             "type": "bubble",
-            "header": "Roles Available",
+            "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
             "body": textMessages
         }
         return msg.flexSendMessage("[ROLES AVAILABLE]", message);
@@ -47,7 +47,7 @@ function companyBubbleMessage(data) {
 
     let message = {
         "type": "bubble",
-        "header": data.header,
+        "header": msg.createComponent("box", "vertical", [msg.textSendMessage(data.header)]),
         "hero": {
             "type": "image",
             "url": data.image,
