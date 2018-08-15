@@ -25,7 +25,11 @@ function showRole(role) {
         let message = {
             "type": "bubble",
             "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
-            "body": textMessages
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": textMessages
+            }
         }
         return msg.flexSendMessage("[ROLES AVAILABLE]", message);
     } else if(roleList.role[role]) {
