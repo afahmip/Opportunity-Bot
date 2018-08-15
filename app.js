@@ -55,4 +55,7 @@ function handleEvent(event) {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
+
+  // For debugging purpose
+  // console.log(commandHandler.handleCommand("!company bi"));
 });
