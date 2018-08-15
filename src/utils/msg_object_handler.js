@@ -102,7 +102,7 @@ function bubbleSendMessage(header, imageUrl, textMessages, link) {
                 "type": "image",
                 "url": imageUrl,
                 "size": "full",
-                "aspectRatio": "1:2",
+                "aspectRatio": "1:1",
                 "aspectMode": "fit"
             },
             "body": {
