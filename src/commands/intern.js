@@ -8,7 +8,7 @@ const roleList = require('./../data/role_list.json');
 function showCompany(company) {
     if(companyList[company]) {
         let data = companyList[company];
-        return companyTextMesage(data);
+        return companyBubbleMesage(data);
     }
     return msg.textSendMessage("Maaf belum ada info untuk saat ini :(");
 }
@@ -25,7 +25,7 @@ function showRole(role) {
             let box = msg.boxSendMessage([button]);
             textMessages.push(box);
         });
-        return msg.boxSendMessage(textMessages);
+        return msg.flexSendMessage("[ROLES AVAILABLE]", textMessages);
     } else if(roleList.role[role]) {
         return msg.textSendMessage(roleList.role[role].text);
     }
@@ -41,7 +41,7 @@ function companyBubbleMessage(data) {
     });
 
     let bubble = bubbleSendMessage(header, imageUrl, textMessages, link);
-    return msg.flexSendMessage(data.header, bubble);
+    return msg.flexSendMessage(data.header, [bubble]);
 }
 
 function companyTextMesage(data) {
