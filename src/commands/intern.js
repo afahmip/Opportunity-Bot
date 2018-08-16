@@ -25,7 +25,6 @@ function showRole(role) {
         // "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
         let message = {
             "type": "bubble",
-            "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
             "body": {
                 "type": "box",
                 "layout": "vertical",

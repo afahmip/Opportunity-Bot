@@ -4,19 +4,19 @@
     ],
     "role": {
         "se": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Software Engineer"
         },
         "bi": {
-            "text": "Business Analyst / Business Development / Business Intelligence"
+            "text": "Business Analyst"
         },
         "pm": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Software Engineer"
         },
         "ml": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Software Engineer"
         },
         "mobile": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Software Engineer"
         }
     }
 }
