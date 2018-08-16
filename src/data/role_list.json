@@ -4,19 +4,25 @@
     ],
     "role": {
         "se": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "SE/Web Dev/Frontend/Backend"
         },
         "bi": {
-            "text": "Business Analyst / Business Development / Business Intelligence"
+            "text": "Business Analyst, Dev, Intelligence"
         },
         "pm": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Product Analyst/Marketing Analytics/PM"
         },
         "ml": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "ML, Data"
         },
         "mobile": {
-            "text": "Software Engineer / Web Developer/ Backend Engineer/ Frontend Engineer/ Fullstack Developer"
+            "text": "Mobile, iOS, Android Dev"
+        },
+        "game": {
+            "text": "Game Developer"
+        },
+        "sys": {
+            "text": "System Engineer/Infra/DevOps"
         }
     }
 }

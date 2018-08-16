@@ -18,7 +18,7 @@ function showRole(role) {
         let textMessages = [];
         roleList.code.forEach(elem => {
             let action = msg.messageAction(roleList.role[elem].text, "!role "+elem);
-            let button = msg.buttonSendMessage("link", action);
+            let button = msg.buttonSendMessage("secondary", action);
             // let box = msg.createComponent("box", "vertical", [button]);
             textMessages.push(button);
         });
