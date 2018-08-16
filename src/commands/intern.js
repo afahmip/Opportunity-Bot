@@ -19,12 +19,12 @@ function showRole(role) {
         roleList.code.forEach(elem => {
             let action = msg.messageAction(roleList.role[elem].text, "!role "+elem);
             let button = msg.buttonSendMessage("link", action);
-            let box = msg.createComponent("box", "vertical", [button]);
-            textMessages.push(box);
+            // let box = msg.createComponent("box", "vertical", [button]);
+            textMessages.push(button);
         });
+        // "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
         let message = {
             "type": "bubble",
-            "header": msg.createComponent("box", "vertical", [msg.textSendMessage("Roles Available")]),
             "body": {
                 "type": "box",
                 "layout": "vertical",
