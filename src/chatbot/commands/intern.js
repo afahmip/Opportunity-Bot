@@ -1,14 +1,27 @@
 'use strict';
 
+const axios = require('axios');
+axios.defaults.baseURL = 'http://localhost:3000';
+
 // load all command processor
 const msg = require('./../utils/msg_object_handler');
 const companyList = require('./../data/company_list.json');
 const roleList = require('./../data/role_list.json');
 
+function showCompanyList() {
+    return axios.get('/api/companies')
+        .then(response => {
+            return companyListTextMessage(response.data);
+        })
+        .catch(error => {return error});
+}
+
 function showCompany(company) {
-    if(companyList[company]) {
+    if(company === 'list') {
+        return showCompanyList();
+    } else if(companyList[company]) {
         let data = companyList[company];
-        return companyBubbleMessage(data);
+        return companyTextMesage(data);
     }
     return msg.textSendMessage("Maaf belum ada info untuk saat ini :(");
 }
@@ -36,6 +49,14 @@ function showRole(role) {
     } else if(roleList.role[role]) {
         return msg.textSendMessage(roleList.role[role].text);
     }
+}
+
+function companyListTextMessage(data) {
+    let result = '';
+    data.forEach(elem => {
+        result += (elem.name + "\n");
+    });
+    return result;
 }
 
 function companyBubbleMessage(data) {
@@ -95,6 +116,7 @@ function companyTextMesage(data) {
 }
 
 module.exports = {
+    showCompanyList: showCompanyList,
     showCompany: showCompany,
     showRole: showRole
 }

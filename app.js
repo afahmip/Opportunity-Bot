@@ -1,9 +1,11 @@
 'use strict';
 
-const commandHandler = require("./src/utils/command_handler");
+const axios = require('axios');
+const commandHandler = require("./src/chatbot/utils/command_handler");
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const http = require('http');
 
 const defaultAccessToken = '8rt2fP+mPZc8HyWUcAmboT6QxcxrLxOukxtXYNLGr1lqX/es75bH1CE6HPo0bA+583gSe16srUzxTwZoRnfWo7azEkhwd4HmE2GWggUmRR+9Wn+JvxLcXQ5Psd5vUFFHBKC5V7IzsP0olLP8n8qOsgdB04t89/1O/w1cDnyilFU=';
 const defaultChannelSecret = '312c6a06e69bc8ffe0aec3bb9b98a22e';
@@ -20,6 +22,9 @@ const client = new line.Client(config);
 // create Express app
 // about Express itself: https://expressjs.com/
 const app = express();
+
+// require API routes into the application.
+require('./src/server/routes')(app);
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
@@ -57,5 +62,9 @@ app.listen(port, () => {
   console.log(`listening on ${port}`);
 
   // For debugging purpose
-  // console.log(JSON.stringify(commandHandler.handleCommand("!role list")));
+  // console.log(JSON.stringify(commandHandler.handleCommand("!company bukalapak")));
+  // commandHandler.handleCommand("!company list").then(response => {
+  //   console.log(JSON.stringify(response));
+  // });
+
 });
