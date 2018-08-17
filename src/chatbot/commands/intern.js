@@ -1,7 +1,6 @@
 'use strict';
 
-const axios = require('axios');
-axios.defaults.baseURL = 'http://localhost:3000';
+const axios = require('./../config/config').axios;
 
 // load all command processor
 const msg = require('./../utils/msg_object_handler');
@@ -52,11 +51,11 @@ function showRole(role) {
 }
 
 function companyListTextMessage(data) {
-    let result = '';
+    let result = '[Daftar perusahaan yang buka magang]\n';
     data.forEach(elem => {
-        result += (elem.name + "\n");
+        result += ('- ' + elem.name + "\n");
     });
-    return result;
+    return msg.textSendMessage(result);
 }
 
 function companyBubbleMessage(data) {
