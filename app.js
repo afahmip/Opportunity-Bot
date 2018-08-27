@@ -49,7 +49,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 // event handler
-async function handleEvent(event) {
+function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
@@ -64,36 +64,32 @@ async function handleEvent(event) {
   // if(message) {
   //   return client.replyMessage(event.replyToken, message);
   // }
-  // commandHandler.handleCommand(event.message.text).then(message => {
-  //   if(message) {
-  //     return client.replyMessage(event.replyToken, message);
-  //   }
-  // });
-  let message = await commandHandler.handleCommand(event.message.text);
-  if(message) {
-    return client.replyMessage(event.replyToken, message);
-  }
+  commandHandler.handleCommand(event.message.text).then(message => {
+    if(message) {
+      return Promise.resolve(client.replyMessage(event.replyToken, message));
+    }
+  });
 }
 
 // Debugging function
-async function debug(text) {
-  let result;
+// async function debug(text) {
+//   let result;
 
-  // // put message processing HERE
-  // // params: event.message.text
-  // // return: message object
-  // const message = commandHandler.handleCommand(event.message.text);
+//   // // put message processing HERE
+//   // // params: event.message.text
+//   // // return: message object
+//   // const message = commandHandler.handleCommand(event.message.text);
 
-  // // use reply API
-  // if(message) {
-  //   return client.replyMessage(event.replyToken, message);
-  // }
-  let message = await commandHandler.handleCommand(text);
-  return message;
-}
+//   // // use reply API
+//   // if(message) {
+//   //   return client.replyMessage(event.replyToken, message);
+//   // }
+//   let message = await commandHandler.handleCommand(text);
+//   return message;
+// }
 
 // listen on port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
   // debug('!role list').then(message => console.log(JSON.stringify(message)));
