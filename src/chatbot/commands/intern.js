@@ -17,10 +17,14 @@ function showCompanyList() {
 
 function showCompany(company) {
     if(company === 'list') {
-        return showCompanyList();
+        return new Promise((resolve, reject) => {
+            resolve(showCompanyList())
+        });
     } else if(companyList[company]) {
         let data = companyList[company];
-        return companyTextMesage(data);
+        return new Promise((resolve, reject) => {
+            resolve(companyTextMesage(data))
+        });
     }
     return msg.textSendMessage("Maaf belum ada info untuk saat ini :(");
 }
@@ -44,9 +48,13 @@ function showRole(role) {
                 "contents": textMessages
             }
         }
-        return msg.flexSendMessage("[ROLES AVAILABLE]", message);
+        return new Promise((resolve, reject) => {
+            resolve(msg.flexSendMessage("[ROLES AVAILABLE]", message))
+        });
     } else if(roleList.role[role]) {
-        return msg.textSendMessage(roleList.role[role].text);
+        return new Promise((resolve, reject) => {
+            resolve(msg.textSendMessage(roleList.role[role].text))
+        });
     }
 }
 

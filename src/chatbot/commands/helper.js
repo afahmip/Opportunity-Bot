@@ -3,24 +3,30 @@
 const msg = require('./../utils/msg_object_handler');
 
 function showInfo() {
-    return msg.textSendMessage("This bot is created by afahmip.");
+    return new Promise((resolve, reject) => {
+        resolve(msg.textSendMessage("This bot is created by afahmip."));
+    });
 }
 
 function showHelp() {
-    return msg.textSendMessage(
-        "Command lists:\n \
-        - !intern list\n \
-        - !tips {cv/interview/materi}\n \
-        - !webcarikerja \n \
-        - !beasiswa\n \
-        - !help\n \
-        - !leave\n \
-        - !info\n"
-    );
+    return new Promise((resolve, reject) => {
+        resolve(msg.textSendMessage(
+            "Command lists:\n \
+            - !intern list\n \
+            - !tips {cv/interview/materi}\n \
+            - !webcarikerja \n \
+            - !beasiswa\n \
+            - !help\n \
+            - !leave\n \
+            - !info\n"
+        ));
+    });
 }
 
 function Karosel() {
-    return msg.carouselSendMessage();
+    return new Promise((resolve, reject) => {
+        resolve(msg.carouselSendMessage());
+    });
 }
 
 module.exports = {

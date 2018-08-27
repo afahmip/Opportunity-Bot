@@ -55,15 +55,20 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  // put message processing HERE
-  // params: event.message.text
-  // return: message object
-  const message = commandHandler.handleCommand(event.message.text);
+  // // put message processing HERE
+  // // params: event.message.text
+  // // return: message object
+  // const message = commandHandler.handleCommand(event.message.text);
 
-  // use reply API
-  if(message) {
-    return client.replyMessage(event.replyToken, message);
-  }
+  // // use reply API
+  // if(message) {
+  //   return client.replyMessage(event.replyToken, message);
+  // }
+  commandHandler.handleCommand(event.message.text).then(message => {
+    if(message) {
+      return client.replyMessage(event.replyToken, message);
+    }
+  });
 }
 
 // listen on port
@@ -73,8 +78,8 @@ app.listen(port, () => {
 
   // For debugging purpose
   // console.log(JSON.stringify(commandHandler.handleCommand("!company bukalapak")));
-  commandHandler.handleCommand("!company list").then(response => {
-    console.log(JSON.stringify(response));
-  });
+  // commandHandler.handleCommand("!company list").then(response => {
+  //   console.log(JSON.stringify(response));
+  // });
 
 });
