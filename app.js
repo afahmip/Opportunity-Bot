@@ -66,6 +66,7 @@ function handleEvent(event) {
   // }
   commandHandler.handleCommand(event.message.text).then(message => {
     if(message) {
+      console.log(message);
       return Promise.resolve(client.replyMessage(event.replyToken, message));
     }
   });
