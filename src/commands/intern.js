@@ -1,30 +1,20 @@
 'use strict';
 
-const axios = require('./../config/config').axios;
-
 // load all command processor
 const msg = require('./../utils/msg_object_handler');
 const companyList = require('./../data/company_list.json');
 const roleList = require('./../data/role_list.json');
 
 function showCompanyList() {
-    return axios.get('/api/companies')
-        .then(response => {
-            return companyListTextMessage(response.data);
-        })
-        .catch(error => {return error});
+    return companyListTextMessage(response.data);
 }
 
 function showCompany(company) {
     if(company === 'list') {
-        return new Promise((resolve, reject) => {
-            resolve(showCompanyList())
-        });
+        return showCompanyList();
     } else if(companyList[company]) {
         let data = companyList[company];
-        return new Promise((resolve, reject) => {
-            resolve(companyTextMesage(data))
-        });
+        return companyTextMesage(data);
     }
     return msg.textSendMessage("Maaf belum ada info untuk saat ini :(");
 }
@@ -48,13 +38,9 @@ function showRole(role) {
                 "contents": textMessages
             }
         }
-        return new Promise((resolve, reject) => {
-            resolve(msg.flexSendMessage("[ROLES AVAILABLE]", message))
-        });
+        return msg.flexSendMessage("[ROLES AVAILABLE]", message);
     } else if(roleList.role[role]) {
-        return new Promise((resolve, reject) => {
-            resolve(msg.textSendMessage(roleList.role[role].text))
-        });
+        return msg.textSendMessage(roleList.role[role].text);
     }
 }
 
